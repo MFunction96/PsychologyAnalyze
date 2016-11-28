@@ -1,35 +1,38 @@
-﻿Public Enum IniTypes
-    GetConfig
-    WriteConfig
-End Enum
+﻿Public Class AccessIni
 
-Public Class AccessIni
-
-    Public Function Ini _
-                    (ByVal lpApplicationName As String,
+    Public Function GetConfig(ByVal lpApplicationName As String,
                     ByVal lpKeyName As String,
-                    ByVal lpFileName As String,
-                    ByVal IniType As IniTypes,
-                    Optional ByVal lpString As String = vbNullString) _
+                    ByVal lpFileName As String) _
                     As String
 
-        Dim IniTemp As Long
-        Dim IniResult As String
+        Dim temp As String
+        Dim iniTemp As Integer
+        Dim iniResult As String = vbNullString * &H400
         Static lpFilePath As String
 
         lpFilePath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + lpFileName
-
-        If IniType = IniTypes.GetConfig Then
-
-            IniTemp = NativeMethods.GetPrivateProfileString(lpApplicationName, lpKeyName, vbNullString, IniResult, &H400, lpFilePath)
-            Ini = Replace(IniResult, Chr(0), vbNullString)
-            If Ini = vbNullString Then
-                MsgBox("未找到相应配置数据", vbCritical + vbOKOnly, "错误")
-            End If
-        Else
-            IniTemp = NativeMethods.WritePrivateProfileString(lpApplicationName, lpKeyName, lpString, lpFilePath)
+        iniTemp = NativeMethods.GetPrivateProfileString(lpApplicationName, lpKeyName, vbNullString, iniResult, &H400, lpFilePath)
+        temp = Trim(iniResult)
+        If temp = vbNullString Then
+            MsgBox("未找到相应配置数据", vbCritical + vbOKOnly, "错误")
         End If
 
+        Return temp
+
     End Function
+
+    Public Sub WriteConfig(
+               ByVal lpApplicationName As String,
+               ByVal lpKeyName As String,
+               ByVal lpFileName As String,
+               ByVal lpString As String)
+
+        Dim iniTemp As Long
+        Static lpFilePath As String
+
+        lpFilePath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + lpFileName
+        iniTemp = NativeMethods.WritePrivateProfileString(lpApplicationName, lpKeyName, lpString, lpFilePath)
+
+    End Sub
 
 End Class

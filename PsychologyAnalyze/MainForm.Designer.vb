@@ -22,10 +22,13 @@ Partial Class MainForm
     '不要使用代码编辑器修改它。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.ShowTip = New System.Windows.Forms.Label()
         Me.Positive = New System.Windows.Forms.Button()
         Me.Neuter = New System.Windows.Forms.Button()
         Me.Negative = New System.Windows.Forms.Button()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.EndPro = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'ShowTip
@@ -65,12 +68,25 @@ Partial Class MainForm
         Me.Negative.Text = "消极"
         Me.Negative.UseVisualStyleBackColor = True
         '
+        'Timer1
+        '
+        '
+        'EndPro
+        '
+        Me.EndPro.Location = New System.Drawing.Point(365, 427)
+        Me.EndPro.Name = "EndPro"
+        Me.EndPro.Size = New System.Drawing.Size(119, 34)
+        Me.EndPro.TabIndex = 4
+        Me.EndPro.Text = "退出"
+        Me.EndPro.UseVisualStyleBackColor = True
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(584, 510)
         Me.ControlBox = False
+        Me.Controls.Add(Me.EndPro)
         Me.Controls.Add(Me.Negative)
         Me.Controls.Add(Me.Neuter)
         Me.Controls.Add(Me.Positive)
@@ -85,4 +101,6 @@ Partial Class MainForm
     Friend WithEvents Positive As Button
     Friend WithEvents Neuter As Button
     Friend WithEvents Negative As Button
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents EndPro As Button
 End Class

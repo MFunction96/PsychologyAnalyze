@@ -16,13 +16,6 @@
         End Sub
 
         <DllImport("kernel32.dll", SetLastError:=True, CharSet:=CharSet.Unicode)>
-        Friend Shared Function WritePrivateProfileSection(
-                               ByVal lpAppName As String,
-                               ByVal lpString As String,
-                               ByVal lpFileName As String) _
-                               As Boolean
-        End Function
-        <DllImport("kernel32.dll", SetLastError:=True, CharSet:=CharSet.Unicode)>
         Friend Shared Function GetPrivateProfileString(
                                ByVal lpAppName As String,
                                ByVal lpKeyName As String,
