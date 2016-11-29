@@ -31,6 +31,7 @@ Partial Class LoginForm
         Me.SexTip = New System.Windows.Forms.Label()
         Me.Age = New System.Windows.Forms.TextBox()
         Me.AgeTip = New System.Windows.Forms.Label()
+        Me.CountTip = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'StartTest
@@ -39,14 +40,14 @@ Partial Class LoginForm
         Me.StartTest.Name = "StartTest"
         Me.StartTest.Size = New System.Drawing.Size(142, 34)
         Me.StartTest.TabIndex = 0
-        Me.StartTest.Text = "开始测试"
+        Me.StartTest.Text = "开始练习"
         Me.StartTest.UseVisualStyleBackColor = True
         '
         'HeightTip
         '
         Me.HeightTip.AutoSize = True
         Me.HeightTip.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.HeightTip.Location = New System.Drawing.Point(153, 120)
+        Me.HeightTip.Location = New System.Drawing.Point(153, 147)
         Me.HeightTip.Name = "HeightTip"
         Me.HeightTip.Size = New System.Drawing.Size(49, 20)
         Me.HeightTip.TabIndex = 1
@@ -54,14 +55,14 @@ Partial Class LoginForm
         '
         'Height
         '
-        Me.Height.Location = New System.Drawing.Point(240, 115)
+        Me.Height.Location = New System.Drawing.Point(240, 142)
         Me.Height.Name = "Height"
         Me.Height.Size = New System.Drawing.Size(191, 25)
         Me.Height.TabIndex = 2
         '
         'Weight
         '
-        Me.Weight.Location = New System.Drawing.Point(240, 178)
+        Me.Weight.Location = New System.Drawing.Point(240, 205)
         Me.Weight.Name = "Weight"
         Me.Weight.Size = New System.Drawing.Size(191, 25)
         Me.Weight.TabIndex = 4
@@ -70,7 +71,7 @@ Partial Class LoginForm
         '
         Me.WeightTip.AutoSize = True
         Me.WeightTip.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.WeightTip.Location = New System.Drawing.Point(153, 183)
+        Me.WeightTip.Location = New System.Drawing.Point(153, 210)
         Me.WeightTip.Name = "WeightTip"
         Me.WeightTip.Size = New System.Drawing.Size(49, 20)
         Me.WeightTip.TabIndex = 3
@@ -78,7 +79,7 @@ Partial Class LoginForm
         '
         'Sex
         '
-        Me.Sex.Location = New System.Drawing.Point(240, 240)
+        Me.Sex.Location = New System.Drawing.Point(240, 267)
         Me.Sex.Name = "Sex"
         Me.Sex.Size = New System.Drawing.Size(191, 25)
         Me.Sex.TabIndex = 6
@@ -87,7 +88,7 @@ Partial Class LoginForm
         '
         Me.SexTip.AutoSize = True
         Me.SexTip.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.SexTip.Location = New System.Drawing.Point(153, 245)
+        Me.SexTip.Location = New System.Drawing.Point(153, 272)
         Me.SexTip.Name = "SexTip"
         Me.SexTip.Size = New System.Drawing.Size(49, 20)
         Me.SexTip.TabIndex = 5
@@ -95,7 +96,7 @@ Partial Class LoginForm
         '
         'Age
         '
-        Me.Age.Location = New System.Drawing.Point(240, 307)
+        Me.Age.Location = New System.Drawing.Point(240, 334)
         Me.Age.Name = "Age"
         Me.Age.Size = New System.Drawing.Size(191, 25)
         Me.Age.TabIndex = 8
@@ -104,17 +105,27 @@ Partial Class LoginForm
         '
         Me.AgeTip.AutoSize = True
         Me.AgeTip.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.AgeTip.Location = New System.Drawing.Point(153, 312)
+        Me.AgeTip.Location = New System.Drawing.Point(153, 339)
         Me.AgeTip.Name = "AgeTip"
         Me.AgeTip.Size = New System.Drawing.Size(49, 20)
         Me.AgeTip.TabIndex = 7
         Me.AgeTip.Text = "年龄"
+        '
+        'CountTip
+        '
+        Me.CountTip.AutoSize = True
+        Me.CountTip.Location = New System.Drawing.Point(133, 68)
+        Me.CountTip.Name = "CountTip"
+        Me.CountTip.Size = New System.Drawing.Size(55, 15)
+        Me.CountTip.TabIndex = 9
+        Me.CountTip.Text = "Label1"
         '
         'LoginForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(598, 518)
+        Me.Controls.Add(Me.CountTip)
         Me.Controls.Add(Me.Age)
         Me.Controls.Add(Me.AgeTip)
         Me.Controls.Add(Me.Sex)
@@ -141,4 +152,5 @@ Partial Class LoginForm
     Friend WithEvents SexTip As Label
     Friend WithEvents Age As TextBox
     Friend WithEvents AgeTip As Label
+    Friend WithEvents CountTip As Label
 End Class
