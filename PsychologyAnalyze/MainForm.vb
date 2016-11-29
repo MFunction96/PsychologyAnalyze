@@ -5,7 +5,7 @@
     Private ini As New AccessIni
     Private n(7) As Integer
     Private sum As Integer = 0
-    Private a As Integer = 1
+    Private a As Integer = 0
     Private vis(1000) As Boolean
     Private r As Integer
     Private i As Integer
@@ -50,8 +50,9 @@
         ini.WriteConfig(LoginForm.index, ShowTip.Text, "Result.ini", a2)
         f = LoginForm
         If a = sum Then
-            f.Activate()
+            f.Show()
             Close()
+            Exit Sub
         End If
         r = GetRnd()
         AnalyzeIndex(r, i)
@@ -62,6 +63,8 @@
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim ini As New AccessIni
+        sum = 0
+        a = 0
         For i = 1 To 7 Step 1
             n(i) = ini.GetConfig("Sum", i, "Config.ini")
             sum += n(i)
@@ -85,8 +88,9 @@
         Timer1.Stop()
         ini.WriteConfig(LoginForm.index, ShowTip.Text, "Result.ini", s)
         If a = sum Then
-            f.Activate()
+            f.Show()
             Close()
+            Exit Sub
         End If
         r = GetRnd()
         a += 1

@@ -32,11 +32,13 @@ Partial Class MainForm
         '
         'ShowTip
         '
-        Me.ShowTip.AutoSize = True
+        Me.ShowTip.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ShowTip.Font = New System.Drawing.Font("宋体", 42.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.ShowTip.Location = New System.Drawing.Point(217, 139)
+        Me.ShowTip.Location = New System.Drawing.Point(179, 122)
         Me.ShowTip.Name = "ShowTip"
-        Me.ShowTip.Size = New System.Drawing.Size(170, 70)
+        Me.ShowTip.Size = New System.Drawing.Size(221, 70)
         Me.ShowTip.TabIndex = 0
         Me.ShowTip.Text = "词汇"
         '
@@ -81,14 +83,13 @@ Partial Class MainForm
         Me.Controls.Add(Me.Positive)
         Me.Controls.Add(Me.ShowTip)
         Me.Name = "MainForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents ShowTip As Label
     Friend WithEvents Positive As Button
     Friend WithEvents Neuter As Button
     Friend WithEvents Negative As Button
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents ShowTip As Label
 End Class

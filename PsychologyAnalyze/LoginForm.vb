@@ -4,14 +4,15 @@
     Public w As Double
     Public s As Integer
     Public a As Integer
-    Public index As Integer = 1
+    Public index As Integer = 0
 
     Private Sub StartTest_Click(sender As Object, e As EventArgs) Handles StartTest.Click
-        Dim f As New Form
+        Dim f As Form
         Dim ini As New AccessIni
         f = MainForm
         If Height.Text <> vbNullString And Weight.Text <> vbNullString And Age.Text <> vbNullString And Sex.Text <> vbNullString Then
             Hide()
+            index += 1
             ini.WriteConfig(index, "Height", "Result.ini", Height.Text)
             ini.WriteConfig(index, "Sex", "Result.ini", Sex.Text)
             ini.WriteConfig(index, "Age", "Result.ini", Age.Text)

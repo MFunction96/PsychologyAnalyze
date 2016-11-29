@@ -125,6 +125,7 @@ Partial Class LoginForm
         Me.Controls.Add(Me.HeightTip)
         Me.Controls.Add(Me.StartTest)
         Me.Name = "LoginForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "开始测试"
         Me.ResumeLayout(False)
         Me.PerformLayout()
