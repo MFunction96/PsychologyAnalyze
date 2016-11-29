@@ -14,6 +14,7 @@
     Private str As String
     Private endt As Date
     Private start As Date
+    Private c As Integer = 0
 
     Private Sub AnalyzeIndex(
                 ByRef r As Integer,
@@ -109,37 +110,35 @@
     End Sub
 
     Private Sub Positive_Click(sender As Object, e As EventArgs) Handles Positive.Click
-        Count()
+        If Timer2.Enabled = False Then
+            Count()
+        End If
     End Sub
 
     Private Sub Neuter_Click(sender As Object, e As EventArgs) Handles Neuter.Click
-        Count()
+        If Timer2.Enabled = False Then
+            Count()
+        End If
     End Sub
 
     Private Sub Negative_Click(sender As Object, e As EventArgs) Handles Negative.Click
-        Count()
+        If Timer2.Enabled = False Then
+            Count()
+        End If
     End Sub
 
     Private Sub Test_Click(sender As Object, e As EventArgs) Handles Test.Click
         Dim msg As MsgBoxResult
-        msg = MsgBox("您是否已经完全熟悉测试？" + Chr(10) + "（点击后立即开始测试）", vbInformation + vbYesNo, "熟悉环境")
+        msg = MsgBox("您是否已经完全熟悉测试？" + Chr(10) + "一秒后开始测试", vbInformation + vbYesNo, "熟悉环境")
         If msg = vbYes Then
             flag = True
             Test.Enabled = False
             Test.Visible = False
-            If flag Then
-                r = GetRnd()
-            Else
-                Randomize()
-                r = Rnd() * sum + 1
-            End If
-            AnalyzeIndex(r, i)
-            str = ini.GetConfig(i, r, "Config.ini")
-            ShowTip.Text = str
             Timer1.Stop()
-            Timer1.Interval = s
-            start = Now()
-            Timer1.Start()
+            ShowTip.Text = "请注意！"
+            Timer2.Interval = 1000
+            Timer2.Enabled = True
+            Timer2.Start()
         End If
     End Sub
 
@@ -151,5 +150,29 @@
         ElseIf e.KeyValue = Keys.F Then
             Call Negative.PerformClick()
         End If
+    End Sub
+
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+
+        If c = 0 Then
+            ShowTip.Text = "+"
+            c += 1
+        ElseIf c = 2 Then
+            Randomize()
+            r = Rnd() * sum + 1
+            AnalyzeIndex(r, i)
+            str = ini.GetConfig(i, r, "Config.ini")
+            ShowTip.Text = str
+            Timer1.Stop()
+            Timer1.Interval = s
+            start = Now()
+            Timer2.Stop()
+            Timer2.Enabled = False
+            Timer1.Start()
+        Else
+            ShowTip.Text = vbNullString
+            c += 1
+        End If
+
     End Sub
 End Class

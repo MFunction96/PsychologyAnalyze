@@ -29,6 +29,7 @@ Partial Class MainForm
         Me.Negative = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Test = New System.Windows.Forms.Button()
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'ShowTip
@@ -87,6 +88,9 @@ Partial Class MainForm
         Me.Test.Text = "开始测试"
         Me.Test.UseVisualStyleBackColor = True
         '
+        'Timer2
+        '
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
@@ -111,4 +115,5 @@ Partial Class MainForm
     Friend WithEvents Timer1 As Timer
     Friend WithEvents ShowTip As Label
     Friend WithEvents Test As Button
+    Friend WithEvents Timer2 As Timer
 End Class
