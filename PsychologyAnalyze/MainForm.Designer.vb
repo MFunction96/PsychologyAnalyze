@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class MainForm
     Inherits System.Windows.Forms.Form
 
     'Form 重写 Dispose，以清理组件列表。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class MainForm
     '注意: 以下过程是 Windows 窗体设计器所必需的
     '可以使用 Windows 窗体设计器修改它。  
     '不要使用代码编辑器修改它。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ShowTip = New System.Windows.Forms.Label()
@@ -28,7 +28,6 @@ Partial Class MainForm
         Me.Neuter = New System.Windows.Forms.Button()
         Me.Negative = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.EndPro = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'ShowTip
@@ -71,22 +70,12 @@ Partial Class MainForm
         'Timer1
         '
         '
-        'EndPro
-        '
-        Me.EndPro.Location = New System.Drawing.Point(365, 427)
-        Me.EndPro.Name = "EndPro"
-        Me.EndPro.Size = New System.Drawing.Size(119, 34)
-        Me.EndPro.TabIndex = 4
-        Me.EndPro.Text = "退出"
-        Me.EndPro.UseVisualStyleBackColor = True
-        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(584, 510)
         Me.ControlBox = False
-        Me.Controls.Add(Me.EndPro)
         Me.Controls.Add(Me.Negative)
         Me.Controls.Add(Me.Neuter)
         Me.Controls.Add(Me.Positive)
@@ -102,5 +91,4 @@ Partial Class MainForm
     Friend WithEvents Neuter As Button
     Friend WithEvents Negative As Button
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents EndPro As Button
 End Class
