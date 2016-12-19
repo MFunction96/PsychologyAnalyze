@@ -32,10 +32,10 @@
 
     Private Function GetRnd() As Integer
         Randomize()
-        r = Rnd() * sum + 1
+        r = Fix(Rnd() * sum + 1)
         Do While vis(r) = False
             Randomize()
-            r = Rnd() * sum + 1
+            r = Fix(Rnd() * sum + 1)
         Loop
         a += 1
         vis(r) = False
@@ -57,6 +57,7 @@
         End If
         f = LoginForm
         If a = sum Then
+            Timer1.Enabled = False
             For i = 1 To 7 Step 1
                 av(i) /= n(i)
                 ini.WriteConfig(LoginForm.index, i, "Result.ini", av(i))
@@ -70,10 +71,14 @@
             r = GetRnd()
         Else
             Randomize()
-            r = Rnd() * sum + 1
+            r = Fix(Rnd() * sum + 1)
         End If
         AnalyzeIndex(r, i)
-        str = ini.GetConfig(i, r, "Config.ini")
+        If flag Then
+            str = ini.GetConfig(i, r, "Test.ini")
+        Else
+            str = ini.GetConfig(i, r, "Practise.ini")
+        End If
         ShowTip.Text = str
         start = Now()
         Timer1.Start()
@@ -82,23 +87,28 @@
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim ini As New AccessIni
         sum = 0
-        a = 1
+        a = 0
         For i = 1 To 7 Step 1
-            n(i) = ini.GetConfig("Sum", i, "Config.ini")
+            If flag Then
+                n(i) = ini.GetConfig("Sum", i, "Test.ini")
+            Else
+                n(i) = ini.GetConfig("Sum", i, "Practise.ini")
+            End If
             sum += n(i)
             av(i) = 0
-        Next
-        For i = 1 To sum Step 1
-            vis(i) = True
         Next
         If flag Then
             r = GetRnd()
         Else
             Randomize()
-            r = Rnd() * sum + 1
+            r = Fix(Rnd() * sum + 1)
         End If
         AnalyzeIndex(r, i)
-        str = ini.GetConfig(i, r, "Config.ini")
+        If flag Then
+            str = ini.GetConfig(i, r, "Test.ini")
+        Else
+            str = ini.GetConfig(i, r, "Practise.ini")
+        End If
         ShowTip.Text = str
         Timer1.Interval = s
         start = Now()
@@ -138,14 +148,24 @@
             ShowTip.Text = "请注意！"
             Timer2.Interval = 1000
             Timer2.Enabled = True
+            sum = 0
+            a = 0
+            For i = 1 To 7 Step 1
+                n(i) = ini.GetConfig("Sum", i, "Test.ini")
+                sum += n(i)
+                av(i) = 0
+            Next
+            For i = 1 To sum Step 1
+                vis(i) = True
+            Next
             Timer2.Start()
         End If
     End Sub
 
     Private Sub MainForm_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
-        If e.KeyValue = Keys.J Then
+        If e.KeyValue = Keys.K Then
             Call Positive.PerformClick()
-        ElseIf e.KeyValue = Keys.H Then
+        ElseIf e.KeyValue = Keys.J Then
             Call Neuter.PerformClick()
         ElseIf e.KeyValue = Keys.F Then
             Call Negative.PerformClick()
@@ -159,9 +179,13 @@
             c += 1
         ElseIf c = 2 Then
             Randomize()
-            r = Rnd() * sum + 1
+            r = Fix(Rnd() * sum + 1)
             AnalyzeIndex(r, i)
-            str = ini.GetConfig(i, r, "Config.ini")
+            If flag Then
+                str = ini.GetConfig(i, r, "Test.ini")
+            Else
+                str = ini.GetConfig(i, r, "Practise.ini")
+            End If
             ShowTip.Text = str
             Timer1.Stop()
             Timer1.Interval = s

@@ -9,7 +9,7 @@
     Private Sub StartTest_Click(sender As Object, e As EventArgs) Handles StartTest.Click
         Dim f As Form
         Dim ini As New AccessIni
-        Const m As String = "我们将要进行一个分类实验，下面出现的词，如果你认为是消极的，请按"“F"”；如果你认为是中性的，请按"“H"”；如果你认为是积极的，请按"“J"”。" + Chr(10) _
+        Const m As String = "我们将要进行一个分类实验，下面出现的词，如果你认为是消极的，请按"“F"”；如果你认为是中性的，请按"“J"”；如果你认为是积极的，请按"“K"”。" + Chr(10) _
             + "注意：" + Chr(10) + "第一，答案没有对错之分，仅指词对你自己的意义而言，包括词的象征含义在内。" + Chr(10) _
             + "第二刺激呈现的时间很短，请尽快做出反应。"
         Dim msg As MsgBoxResult = vbCancel

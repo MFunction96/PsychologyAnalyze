@@ -52,7 +52,7 @@ Partial Class MainForm
         Me.Positive.Name = "Positive"
         Me.Positive.Size = New System.Drawing.Size(119, 34)
         Me.Positive.TabIndex = 1
-        Me.Positive.Text = "积极（J）"
+        Me.Positive.Text = "积极（K）"
         Me.Positive.UseVisualStyleBackColor = True
         '
         'Neuter
@@ -62,7 +62,7 @@ Partial Class MainForm
         Me.Neuter.Name = "Neuter"
         Me.Neuter.Size = New System.Drawing.Size(119, 34)
         Me.Neuter.TabIndex = 2
-        Me.Neuter.Text = "中性（H）"
+        Me.Neuter.Text = "中性（J）"
         Me.Neuter.UseVisualStyleBackColor = True
         '
         'Negative
